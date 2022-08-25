@@ -6,6 +6,10 @@
  * @package  Laravel
  * @author   Taylor Otwell <taylor@laravel.com>
  */
+header('Access-Control-Allow-Origin:*');
+header('Access-Control-Allow-Methods:POST');
+//表示只允许POST请求
+header('Access-Control-Allow-Headers:x-requested-with, content-type');
 
 define('LARAVEL_START', microtime(true));
 
