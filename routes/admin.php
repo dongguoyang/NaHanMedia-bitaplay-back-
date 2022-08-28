@@ -134,6 +134,12 @@ Route::domain($domain)->group(function () {
             Route::post('/list', [HelpController::class, 'list']);
             Route::post('/handle', [HelpController::class, 'handle']);
         });
+
+        Route::prefix('appVersion')->group(function () {
+            Route::post('/list', [\App\Http\Controllers\Admin\AppVersionController::class, 'list']);
+            Route::post('/save', [\App\Http\Controllers\Admin\AppVersionController::class, 'save']);
+            Route::post('/edit-status', [\App\Http\Controllers\Admin\AppVersionController::class, 'editStatus']);
+        });
     });
 });
 

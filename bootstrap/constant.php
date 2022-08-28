@@ -95,3 +95,9 @@ const APP_VERSION_STATUS_PENDING = 1;// 待审核
 const APP_VERSION_STATUS_ABLE = 2; // 通过
 const APP_VERSION_STATUS_DISABLE = 3;// 拒绝
 
+/**
+ * APP包状态
+ */
+const APP_VERSION_STATUS_NO = 1;// 失效
+const APP_VERSION_STATUS_YES = 2;// 启用
+
