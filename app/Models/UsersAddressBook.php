@@ -6,6 +6,8 @@ class UsersAddressBook extends BaseAuth{
 
     protected $fillable = ['user_id', 'user_book_id', 'nickname','real_name','phone', 'company', 'type', 'status'];
 
+    protected $table = 'users_address_book';
+
     public function getUserInfo(){
         return $this->hasOne(\App\Models\User::class,'id','user_id');
     }

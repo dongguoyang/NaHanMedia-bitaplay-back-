@@ -20,6 +20,10 @@ use App\Http\Controllers\Admin\AvatarController;
 use App\Http\Controllers\Admin\SearchWordController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HelpController;
+use App\Http\Controllers\Admin\AppVersionController;
+use App\Http\Controllers\Admin\UsersAddressBookController;
+use App\Http\Controllers\Admin\UsersAddressBookItemController;
+use App\Http\Controllers\Admin\UsersAddressBookLogController;
 
 /**
  * 后台
@@ -136,9 +140,21 @@ Route::domain($domain)->group(function () {
         });
 
         Route::prefix('appVersion')->group(function () {
-            Route::post('/list', [\App\Http\Controllers\Admin\AppVersionController::class, 'list']);
-            Route::post('/save', [\App\Http\Controllers\Admin\AppVersionController::class, 'save']);
-            Route::post('/edit-status', [\App\Http\Controllers\Admin\AppVersionController::class, 'editStatus']);
+            Route::post('/list', [AppVersionController::class, 'list']);
+            Route::post('/save', [AppVersionController::class, 'save']);
+            Route::post('/edit-status', [AppVersionController::class, 'editStatus']);
+        });
+
+        Route::prefix('UsersAddressBook')->group(function () {
+            Route::post('/list', [UsersAddressBookController::class, 'list']);
+        });
+
+        Route::prefix('UsersAddressBookItem')->group(function () {
+            Route::post('/list', [UsersAddressBookItemController::class, 'list']);
+        });
+
+        Route::prefix('UsersAddressBookLog')->group(function () {
+            Route::post('/list', [UsersAddressBookLogController::class, 'list']);
         });
     });
 });
