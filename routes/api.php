@@ -8,6 +8,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\Api\WalletController;
 use App\Http\Controllers\Api\AppController;
 use App\Http\Controllers\Api\WebFeedbackController;
+use App\Http\Controllers\Api\UsersAddressBookController;
 
 /**
  * 用户
@@ -40,6 +41,7 @@ Route::domain($domain)->group(function () {
     Route::prefix('app')->group(function () {
         Route::post('/list', [AppController::class, 'list']);
         Route::post('/detail', [AppController::class, 'detail']);
+        Route::post('/getAppVersion', [AppController::class, 'getAppVersion']);
     });
 
     Route::prefix('web-feedback')->group(function () {
@@ -89,6 +91,12 @@ Route::domain($domain)->group(function () {
         Route::prefix('app')->group(function () {
             Route::post('/collect', [AppController::class, 'collect']);
             Route::post('/download', [AppController::class, 'download']);
+        });
+
+        Route::middleware('auth.api')->group(function () {
+            Route::prefix('usersAddressBook')->group(function () {
+                Route::post('/uploadAddressBook', [UsersAddressBookController::class, 'uploadAddressBook']);
+            });
         });
     });
 });

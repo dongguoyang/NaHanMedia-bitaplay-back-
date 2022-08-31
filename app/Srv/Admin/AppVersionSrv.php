@@ -20,6 +20,13 @@ class AppVersionSrv extends Srv{
 
     }
 
+    public function getAppVersion(){
+        $query = AppVersion::query();
+        $query->where('status', APP_VERSION_STATUS_YES);
+        $data = $query->orderByDesc('version')->first();
+        return $this->returnData(ERR_SUCCESS, '', $data);
+    }
+
     public function editStatus($id)
     {
         if (!$AppVersion = AppVersion::where('id', $id)->first()) {

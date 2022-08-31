@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 
 
 use App\Http\Controllers\Controller;
+use App\Srv\Admin\AppVersionSrv;
 use App\Srv\Api\AppSrv;
 use App\Srv\Api\UserSrv;
 use Illuminate\Http\Request;
@@ -45,5 +46,10 @@ class AppController extends Controller
             return $this->response(ERR_PARAM_ERR, '参数错误');
         }
         return $this->responseDirect($srv->download($data));
+    }
+
+    public function getAppVersion(AppVersionSrv $srv)
+    {
+        return $this->responseDirect($srv->getAppVersion());
     }
 }
