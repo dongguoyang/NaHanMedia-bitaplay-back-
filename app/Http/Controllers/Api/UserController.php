@@ -23,6 +23,8 @@ class UserController extends Controller
             return $this->response(ERR_PARAM_ERR, '参数错误');
         }
         $oaid = $request->header('User-Agent');
+
+
         $oaid = explode('&', $oaid);
         $oaid = explode('=', $oaid[0]);
         $p['oaid'] = $oaid[1];

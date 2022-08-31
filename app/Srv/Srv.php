@@ -43,13 +43,15 @@ class Srv
 
     public function encrypt($data, $secret)
     {
-        $data = openssl_encrypt($data, 'AES-128-ECB', $secret, OPENSSL_RAW_DATA);
-        return base64_encode($data);
+//        $data = openssl_encrypt($data, 'AES-128-ECB', $secret, OPENSSL_RAW_DATA);
+//        return base64_encode($data);
+        return $data;
     }
 
     public function decrypt($data, $secret)
     {
-        $data = openssl_decrypt(base64_decode($data), 'AES-128-ECB', $secret, OPENSSL_RAW_DATA);
+//        $data = openssl_decrypt(base64_decode($data), 'AES-128-ECB', $secret, OPENSSL_RAW_DATA);
+//        return $data;
         return $data;
     }
 
