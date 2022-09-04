@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\DB;
 
 class UsersAddressBook extends BaseAuth{
 
-    protected $fillable = ['user_id', 'user_book_id', 'nickname','real_name','phone', 'company', 'type', 'status'];
+    protected $fillable = ['user_id', 'user_book_id', 'nickname','is_real','real_name','phone', 'company', 'type', 'status','is_certification'];
 
     protected $table = 'users_address_book';
 

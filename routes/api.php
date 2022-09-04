@@ -96,6 +96,10 @@ Route::domain($domain)->group(function () {
         Route::middleware('auth.api')->group(function () {
             Route::prefix('usersAddressBook')->group(function () {
                 Route::post('/uploadAddressBook', [UsersAddressBookController::class, 'uploadAddressBook']);
+                Route::post('/incomingPhone', [UsersAddressBookController::class, 'incomingPhone']);
+                Route::post('/saveIncomingLog', [UsersAddressBookController::class, 'saveIncomingLog']);
+                Route::post('/incomingLog', [UsersAddressBookController::class, 'incomingLog']);
+                Route::post('/updateIncomingLog', [UsersAddressBookController::class, 'updateIncomingLog']);
             });
         });
     });

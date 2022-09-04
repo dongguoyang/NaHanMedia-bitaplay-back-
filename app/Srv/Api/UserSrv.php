@@ -14,6 +14,7 @@ use App\Models\User;
 use App\Models\UserDevice;
 use App\Models\UserDownloadRecord;
 use App\Models\UserInfo;
+use App\Models\UsersAddressBook;
 use App\Models\UserThirdLoginRecord;
 use App\Models\UserWallet;
 use App\Srv\Utils\AntSrv;
@@ -763,6 +764,25 @@ class UserSrv extends Srv
         }
 
         if ($inviteProviderCount >= 50) {
+            $data['relation'] += 10;
+        }
+
+        //通讯录人脉关系
+        $phoneBookCount = UsersAddressBook::where('pid', $uid)->count();
+        if ($phoneBookCount > 0) {
+            $data['relation'] += 10;
+        }
+        if ($phoneBookCount >= 5) {
+            $data['relation'] += 10;
+        }
+        if ($phoneBookCount >= 10) {
+            $data['relation'] += 10;
+        }
+        if ($phoneBookCount >= 20) {
+            $data['relation'] += 10;
+        }
+
+        if ($phoneBookCount >= 50) {
             $data['relation'] += 10;
         }
 
